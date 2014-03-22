@@ -25,9 +25,9 @@
 
 int main(int argc, char **argv)
 {
-    SuperFloat::SuperFloat a(1.0);
-    SuperFloat::SuperFloat b(7L);
-    SuperFloat::SuperFloat c(a);
+    SuperFloat::Number a(1.0);
+    SuperFloat::Number b(7L);
+    SuperFloat::Number c(a);
     mpfr_t a2,b2,c2;
 
     a.copy_internal(a2);

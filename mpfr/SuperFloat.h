@@ -27,7 +27,7 @@
 namespace SuperFloat
 {
     /*! \def SUPERFLOAT_BITS
-    *   \brief A macro that sets the default precision of SuperFloatEnv.
+    *   \brief A macro that sets the default precision of Environment.
     *
     *  The precision to use when the default constructor is used.
     *
@@ -35,7 +35,7 @@ namespace SuperFloat
     #define SUPERFLOAT_BITS 128
 
     /*! \def SUPERFLOAT_RMODE
-    *   \brief A macro that sets the default rounding mode of SuperFloatEnv.
+    *   \brief A macro that sets the default rounding mode of Environment.
     *
     *  The rounding mode to use when the default constructor is used.
     *
@@ -51,12 +51,12 @@ namespace SuperFloat
     *  The destructor frees the MPFR cache to prevent memory leaks.
     *
     */
-    class SuperFloatEnv
+    class Environment
     {
         public:
-            SuperFloatEnv(){ mpfr_set_default_prec(SUPERFLOAT_BITS); }
-            SuperFloatEnv(int Bits){ mpfr_set_default_prec(Bits); }
-            ~SuperFloatEnv(){ mpfr_free_cache (); }
+            Environment(){ mpfr_set_default_prec(SUPERFLOAT_BITS); }
+            Environment(int Bits){ mpfr_set_default_prec(Bits); }
+            ~Environment(){ mpfr_free_cache(); }
 
     };
 
@@ -65,20 +65,20 @@ namespace SuperFloat
     *  Detailed description starts here.
     *
     */
-    class SuperFloat
+    class Number
     {
         private:
             mpfr_t internal;
 
         public:
-            SuperFloat(){ mpfr_init2(internal,SUPERFLOAT_BITS); };
-            SuperFloat(const SuperFloat& right){ mpfr_init_set(internal, right.internal, SUPERFLOAT_RMODE); }
-            SuperFloat(unsigned long int right){ mpfr_init_set_ui(internal, right, SUPERFLOAT_RMODE); }
-            SuperFloat(signed long int right){ mpfr_init_set_si(internal, right, SUPERFLOAT_RMODE); }
-            SuperFloat(unsigned int right){ mpfr_init_set_ui(internal, right, SUPERFLOAT_RMODE); }
-            SuperFloat(signed int right){ mpfr_init_set_si(internal, right, SUPERFLOAT_RMODE); }
-            SuperFloat(double right){ mpfr_init_set_d(internal, right, SUPERFLOAT_RMODE); }
-            SuperFloat(long double right){ mpfr_init_set_ld(internal, right, SUPERFLOAT_RMODE); }
+            Number(){ mpfr_init2(internal,SUPERFLOAT_BITS); };
+            Number(const Number& right){ mpfr_init_set(internal, right.internal, SUPERFLOAT_RMODE); }
+            Number(unsigned long int right){ mpfr_init_set_ui(internal, right, SUPERFLOAT_RMODE); }
+            Number(signed long int right){ mpfr_init_set_si(internal, right, SUPERFLOAT_RMODE); }
+            Number(unsigned int right){ mpfr_init_set_ui(internal, right, SUPERFLOAT_RMODE); }
+            Number(signed int right){ mpfr_init_set_si(internal, right, SUPERFLOAT_RMODE); }
+            Number(double right){ mpfr_init_set_d(internal, right, SUPERFLOAT_RMODE); }
+            Number(long double right){ mpfr_init_set_ld(internal, right, SUPERFLOAT_RMODE); }
 
             // This is a temporary utility function which should disappear from the production version
             void copy_internal(mpfr_t target){ mpfr_init_set(target, internal, SUPERFLOAT_RMODE); }
@@ -93,11 +93,11 @@ namespace SuperFloat
 
 
 
-            SuperFloat& operator+=(const SuperFloat& right){ mpfr_add(internal,internal,right.internal,SUPERFLOAT_RMODE); return *this;}
-            SuperFloat& operator+=(unsigned long int right){ mpfr_add_ui(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
-            SuperFloat& operator+=(signed long int right){ mpfr_add_si(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
-            SuperFloat& operator+=(unsigned int right){ mpfr_add_ui(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
-            SuperFloat& operator+=(signed int right){ mpfr_add_si(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
+            Number& operator+=(const Number& right){ mpfr_add(internal,internal,right.internal,SUPERFLOAT_RMODE); return *this;}
+            Number& operator+=(unsigned long int right){ mpfr_add_ui(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
+            Number& operator+=(signed long int right){ mpfr_add_si(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
+            Number& operator+=(unsigned int right){ mpfr_add_ui(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
+            Number& operator+=(signed int right){ mpfr_add_si(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
     };
 
 
