@@ -1,21 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Jeff Hammond                                    *
  *   jeff.science@gmail.com                                                *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
 #ifndef SUPERFLOAT_HPP
@@ -27,30 +12,30 @@
 namespace SuperFloat
 {
     /*! \def SUPERFLOAT_BITS
-    *   \brief A macro that sets the default precision of Environment.
-    *
-    *  The precision to use when the default constructor is used.
-    *
-    */
+     *   \brief A macro that sets the default precision of Environment.
+     *
+     *  The precision to use when the default constructor is used.
+     *
+     */
     #define SUPERFLOAT_BITS 128
 
     /*! \def SUPERFLOAT_RMODE
-    *   \brief A macro that sets the default rounding mode of Environment.
-    *
-    *  The rounding mode to use when the default constructor is used.
-    *
-    */
+     *   \brief A macro that sets the default rounding mode of Environment.
+     *
+     *  The rounding mode to use when the default constructor is used.
+     *
+     */
     #define SUPERFLOAT_RMODE GMP_RNDN
 
     /*! \brief Class defining arbitrary-precision environment.
-    *
-    *  While technically optionally, initializing the environment
-    *  ensures that default precision will be what the user has set,
-    *  either as SUPERFLOAT_DEFAULT_BITS or another value.
-    *
-    *  The destructor frees the MPFR cache to prevent memory leaks.
-    *
-    */
+     *
+     *  While technically optionally, initializing the environment
+     *  ensures that default precision will be what the user has set,
+     *  either as SUPERFLOAT_DEFAULT_BITS or another value.
+     *
+     *  The destructor frees the MPFR cache to prevent memory leaks.
+     *
+     */
     class Environment
     {
         public:
@@ -61,10 +46,10 @@ namespace SuperFloat
     };
 
     /*! \brief Class defining arbitrary-precision value.
-    *
-    *  Detailed description starts here.
-    *
-    */
+     *
+     *  Detailed description starts here.
+     *
+     */
     class Number
     {
         private:
@@ -84,10 +69,10 @@ namespace SuperFloat
             void copy_internal(mpfr_t target){ mpfr_init_set(target, internal, SUPERFLOAT_RMODE); }
 
             /*! \brief Assignment operators.
-            *
-            *  Detailed description starts here.
-            *
-            */
+             *
+             *  Detailed description starts here.
+             *
+             */
 
 
 
