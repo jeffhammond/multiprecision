@@ -28,30 +28,12 @@ int main(int argc, char **argv)
     SuperFloat::Number a(1.0);
     SuperFloat::Number b(7L);
     SuperFloat::Number c(a);
-    mpfr_t a2,b2,c2;
 
-    a.copy_internal(a2);
-    fprintf(stdout,"a = ");
-    mpfr_out_str(stdout, 10, 0, a2, SUPERFLOAT_RMODE);
-    fprintf(stdout,"\n");
-
-    b.copy_internal(b2);
-    fprintf(stdout,"b = ");
-    mpfr_out_str(stdout, 10, 0, b2, SUPERFLOAT_RMODE);
-    fprintf(stdout,"\n");
-
-    c.copy_internal(c2);
-    fprintf(stdout,"c = ");
-    mpfr_out_str(stdout, 10, 0, c2, SUPERFLOAT_RMODE);
-    fprintf(stdout,"\n");
-
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << c << std::endl;
     c+=b;
-
-    c.copy_internal(c2);
-    fprintf(stdout,"c = ");
-    mpfr_out_str(stdout, 10, 0, c2, SUPERFLOAT_RMODE);
-    fprintf(stdout,"\n");
-
+    std::cout << c << std::endl;
     return(0);
 
 }

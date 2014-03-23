@@ -6,6 +6,7 @@
 #ifndef SUPERFLOAT_HPP
 #define SUPERFLOAT_HPP
 
+#include <iostream>
 #include <cstdio>
 #include <mpfr.h>
 
@@ -75,8 +76,28 @@ namespace SuperFloat
              */
 
 
+            /*! \brief IO stream operators.
+             *
+             *  Detailed description starts here.
+             *
+             */
+
+            friend std::ostream& operator<<(std::ostream& os, const Number& n)
+            {
+                if ( &os == &std::cout ) {
+                    mpfr_out_str(stdout, 10, 0, n.internal, SUPERFLOAT_RMODE);
+                } else {
+                    os << "MPFR output to anything besides stdout is nsupported!" << std::endl;
+                }
+                return os;
+            }
 
 
+            /*! \brief Mathematical operators.
+             *
+             *  Detailed description starts here.
+             *
+             */
 
             Number& operator+=(const Number& right){ mpfr_add(internal,internal,right.internal,SUPERFLOAT_RMODE); return *this;}
             Number& operator+=(unsigned long int right){ mpfr_add_ui(internal,internal,right,SUPERFLOAT_RMODE); return *this;}
