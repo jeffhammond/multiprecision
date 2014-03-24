@@ -99,8 +99,10 @@ namespace SuperFloat
             {
                 if ( &os == &std::cout ) {
                     mpfr_out_str(stdout, 10 /* base */, 0 /* print exactly */, n.internal, SUPERFLOAT_RMODE);
+                else if ( &os == &std::cerr ) {
+                    mpfr_out_str(stderr, 10 /* base */, 0 /* print exactly */, n.internal, SUPERFLOAT_RMODE);
                 } else {
-                    os << "MPFR output to anything besides stdout is unsupported!" << std::endl;
+                    os << "MPFR output to anything besides cout/cerr is unsupported!" << std::endl;
                 }
                 return os;
             }
