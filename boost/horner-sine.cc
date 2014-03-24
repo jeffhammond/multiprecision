@@ -1,3 +1,8 @@
+/* based upon http://www.boost.org/doc/libs/1_55_0/libs/multiprecision/doc/html/boost_multiprecision/tut/floats/fp_eg/poly_eg.html
+ * Use, modification and distribution are subject to the Boost Software License, Version 1.0.
+ * (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+ * Copyright ???? 20??. */
+
 #include <iostream>
 #include <utility>
 
