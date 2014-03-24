@@ -23,14 +23,12 @@ int main(void)
     mp_type c = pow(b,a);
     mp_type d = exp(a);
     mp_type e = 1/b;
-    mp_type f = 1./b;
 
     std::cout << std::setprecision(std::numeric_limits<mp_type>::max_digits10) << a << std::endl;
     std::cout << std::setprecision(std::numeric_limits<mp_type>::max_digits10) << b << std::endl;
     std::cout << std::setprecision(std::numeric_limits<mp_type>::max_digits10) << c << std::endl;
     std::cout << std::setprecision(std::numeric_limits<mp_type>::max_digits10) << d << std::endl;
     std::cout << std::setprecision(std::numeric_limits<mp_type>::max_digits10) << e << std::endl;
-    std::cout << std::setprecision(std::numeric_limits<mp_type>::max_digits10) << f << std::endl;
 
     return 0;
 }
