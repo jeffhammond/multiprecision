@@ -66,20 +66,11 @@ namespace SuperFloat
             Number(unsigned long int right){
                 mpfr_init_set_ui(internal, right, SUPERFLOAT_RMODE);
             }
-            Number(signed long int right){
-                mpfr_init_set_si(internal, right, SUPERFLOAT_RMODE);
-            }
-            Number(unsigned int right){
-                mpfr_init_set_ui(internal, right, SUPERFLOAT_RMODE);
-            }
             Number(signed int right){
                 mpfr_init_set_si(internal, right, SUPERFLOAT_RMODE);
             }
             Number(double right){
                 mpfr_init_set_d(internal, right, SUPERFLOAT_RMODE);
-            }
-            Number(long double right){
-                mpfr_init_set_ld(internal, right, SUPERFLOAT_RMODE);
             }
 
             /*! \brief Assignment operators.
