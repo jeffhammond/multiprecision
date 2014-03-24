@@ -99,7 +99,7 @@ namespace SuperFloat
             {
                 if ( &os == &std::cout ) {
                     mpfr_out_str(stdout, 10 /* base */, 0 /* print exactly */, n.internal, SUPERFLOAT_RMODE);
-                else if ( &os == &std::cerr ) {
+                } else if ( &os == &std::cerr ) {
                     mpfr_out_str(stderr, 10 /* base */, 0 /* print exactly */, n.internal, SUPERFLOAT_RMODE);
                 } else {
                     os << "MPFR output to anything besides cout/cerr is unsupported!" << std::endl;
@@ -110,20 +110,12 @@ namespace SuperFloat
 
             /*! \brief Mathematical operators.
              *
-             *  Detailed description starts here.
+             *  Accumulate: +=
              *
              */
 
             Number& operator+=(const Number& right){
                 mpfr_add(internal,internal,right.internal,SUPERFLOAT_RMODE);
-                return *this;
-            }
-            Number& operator+=(unsigned long int right){
-                mpfr_add_ui(internal,internal,right,SUPERFLOAT_RMODE);
-                return *this;
-            }
-            Number& operator+=(signed long int right){
-                mpfr_add_si(internal,internal,right,SUPERFLOAT_RMODE);
                 return *this;
             }
             Number& operator+=(unsigned int right){
@@ -134,9 +126,80 @@ namespace SuperFloat
                 mpfr_add_si(internal,internal,right,SUPERFLOAT_RMODE);
                 return *this;
             }
+            Number& operator+=(double right){
+                mpfr_add_d(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+
+            /*! \brief Mathematical operators.
+             *
+             *  Negative Accumulate: -=
+             *
+             */
+
+            Number& operator-=(const Number& right){
+                mpfr_sub(internal,internal,right.internal,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator-=(unsigned int right){
+                mpfr_sub_ui(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator-=(signed int right){
+                mpfr_sub_si(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator-=(double right){
+                mpfr_sub_d(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+
+            /*! \brief Mathematical operators.
+             *
+             *  Scale: *=
+             *
+             */
+
+            Number& operator*=(const Number& right){
+                mpfr_mul(internal,internal,right.internal,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator*=(unsigned int right){
+                mpfr_mul_ui(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator*=(signed int right){
+                mpfr_mul_si(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator*=(double right){
+                mpfr_mul_d(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+
+            /*! \brief Mathematical operators.
+             *
+             *  Divide: /=
+             *
+             */
+
+            Number& operator/=(const Number& right){
+                mpfr_div(internal,internal,right.internal,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator/=(unsigned int right){
+                mpfr_div_ui(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator/=(signed int right){
+                mpfr_div_si(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
+            Number& operator/=(double right){
+                mpfr_div_d(internal,internal,right,SUPERFLOAT_RMODE);
+                return *this;
+            }
     };
-
-
 }
 
 #endif
