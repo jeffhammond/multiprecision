@@ -6,7 +6,7 @@ LDFLAGS  = $(CXXFLAGS)
 
 LIBS	 = -lmpfr -lgmp
 
-all: horner-sine.x
+all: horner-sine.x tgamma.x
 
 %.x: %.o
 	$(LD) $(LDFLAGS) $< $(LIBS) -o $@
