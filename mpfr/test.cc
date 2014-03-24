@@ -27,5 +27,9 @@ int main(int argc, char **argv)
     std::cout << c << std::endl;
     c=98.17;
     std::cout << c << std::endl;
+#if 0
+    c=a+b;
+    std::cout << c << std::endl;
+#endif
     return(0);
 }
