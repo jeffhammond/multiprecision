@@ -3,12 +3,12 @@ OFLAGS = -g -O3 -xHost
 FC = ifort
 CC = icc
 
-CFLAGS = $(OFLAGS) -std=c99
+CFLAGS = $(OFLAGS) -std=gnu99
 F90FLAGS = $(OFLAGS)
 F77FLAGS = $(OFLAGS)
 
 TESTS = 
-IMPLS = dot.o dot77.o
+IMPLS = dot.o dot77.o dotc.o
 
 all: $(TESTS) $(IMPLS)
 
@@ -18,7 +18,7 @@ all: $(TESTS) $(IMPLS)
 %.o: %.f
 	$(FC) $(F77FLAGS) -c $<
 
-%.o: %.c
+%.o: %.c quad.h
 	$(CC) $(CFLAGS) -c $< 
 
 clean:
