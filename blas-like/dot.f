@@ -6,6 +6,9 @@
             print*,'bad input'
             exit
         endif
-
+        do i=1,n
+            r = r + x(i) * y(i)
+        enddo
+        z = r
         return
       end subroutine
