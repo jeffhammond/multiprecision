@@ -10,6 +10,7 @@ subroutine mydot32(n,x,jx,y,jy,z)
         print*,'mysdot32 supports stride 1 only'
         call abort
     endif
+    r = 0.0
     do i=1,n
         r = r + x(i) * y(i)
     enddo
@@ -29,6 +30,7 @@ subroutine mydot64(n,x,jx,y,jy,z)
         print*,'mysdot64 supports stride 1 only'
         call abort
     endif
+    r = 0.0
     do i=1,n
         r = r + x(i) * y(i)
     enddo
@@ -48,6 +50,7 @@ subroutine mydot128(n,x,jx,y,jy,z)
         print*,'mysdot128 supports stride 1 only'
         call abort
     endif
+    r = 0.0
     do i=1,n
         r = r + x(i) * y(i)
     enddo
