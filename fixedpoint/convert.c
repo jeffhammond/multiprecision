@@ -18,5 +18,7 @@ int main(int argc, char* argv[])
     float f32c = i64c * FLT_EPSILON;
     printf("sum = %f (should be %f)\n", f32c, f32a+f32b);
 
+    printf("x=%x\n",1.0f);
+
     return 0;
 }

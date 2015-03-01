@@ -2,7 +2,7 @@ CC 	   = clang
 CFLAGS = -g -Wall -std=c99
 LIBS= -lm
 
-TESTS = convert
+TESTS = convert representation rep_union
 
 all:  $(TESTS)
 
