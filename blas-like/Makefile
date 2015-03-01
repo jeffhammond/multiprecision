@@ -4,18 +4,19 @@ FC = ifort
 CC = icc
 
 CFLAGS = $(OFLAGS) -std=c99
-FFLAGS = $(OFLAGS) -stand f03
+F90FLAGS = $(OFLAGS)
+F77FLAGS = $(OFLAGS)
 
 TESTS = 
-IMPLS = dot.o
+IMPLS = dot.o dot77.o
 
 all: $(TESTS) $(IMPLS)
 
 %.o: %.f90
-	$(FC) $(FFLAGS) -c $<
+	$(FC) $(F90FLAGS) -c $<
 
 %.o: %.f
-	$(FC) $(FFLAGS) -c $<
+	$(FC) $(F77FLAGS) -c $<
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< 
