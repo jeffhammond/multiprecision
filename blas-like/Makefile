@@ -1,7 +1,7 @@
 COMPILER := INTEL
 
 ifeq ($(COMPILER),INTEL)
-OFLAGS = -g -O3 -xHost
+OFLAGS = -g -O3 -xHost -qopenmp
 
 FC = ifort
 CC = icc
@@ -14,7 +14,7 @@ LIBS =
 endif
 
 ifeq ($(COMPILER),GCC)
-OFLAGS = -g -O3
+OFLAGS = -g -O3 -fopenmp
 
 FC = gfortran-4.9
 CC = gcc-4.9
