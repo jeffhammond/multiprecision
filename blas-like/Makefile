@@ -10,7 +10,7 @@ CFLAGS = $(OFLAGS) -std=gnu99
 F90FLAGS = $(OFLAGS)
 F77FLAGS = $(OFLAGS)
 
-LIBS = 
+LIBS =
 endif
 
 ifeq ($(COMPILER),GCC)
@@ -26,10 +26,13 @@ F77FLAGS = $(OFLAGS)
 LIBS = -lquadmath
 endif
 
-TESTS = testquad.x
+TESTS = testquad.x testdotf.x
 IMPLS = dot.o dot77.o dotc.o
 
-all: $(TESTS) $(IMPLS)
+all: $(TESTS)
+
+%.a: $(IMPLS)
+	$(AR) -r $@ $(IMPLS)
 
 %.o: %.f90
 	$(FC) $(F90FLAGS) -c $<
@@ -40,8 +43,14 @@ all: $(TESTS) $(IMPLS)
 %.o: %.c quad.h
 	$(CC) $(CFLAGS) -c $< 
 
-%.x: %.c
-	$(CC) $(CFLAGS) $< $(LIBS) -o $@
+%.x: %.f90 libdot.a
+	$(FC) $(F90FLAGS) $< -L. -ldot $(LIBS) -o $@
+
+%.x: %.f libdot.a
+	$(FC) $(F77FLAGS) $< -L. -ldot $(LIBS) -o $@
+
+%.x: %.c libdot.a
+	$(CC) $(CFLAGS)   $< -L. -ldot $(LIBS) -o $@
 
 clean:
 	-rm -f *.o

@@ -20,7 +20,7 @@
         if ((jx.ne.1).or.(jy.ne.1)) then
             print*,'bad input'
         endif
-        r = 0.0
+        r = 0.0d0
         do i=1,n
             r = r + x(i) * y(i)
         enddo
@@ -35,7 +35,7 @@
         if ((jx.ne.1).or.(jy.ne.1)) then
             print*,'bad input'
         endif
-        r = 0.0
+        r = 0.0d0
         do i=1,n
             r = r + x(i) * y(i)
         enddo
