@@ -1,4 +1,4 @@
-subroutine mydot32(n,x,jx,y,jy,z)
+subroutine mydotf32(n,x,jx,y,jy,z)
     use ISO_FORTRAN_ENV
     implicit none
     integer, intent(in) :: n,jx,jy
@@ -7,7 +7,7 @@ subroutine mydot32(n,x,jx,y,jy,z)
     real(kind=REAL32), intent(out) :: z
     real(kind=REAL32) :: r
     if ((jx.ne.1).or.(jy.ne.1)) then
-        print*,'mysdot32 supports stride 1 only'
+        print*,'mydotf32 supports stride 1 only'
         call abort
     endif
     r = 0.0
@@ -16,9 +16,9 @@ subroutine mydot32(n,x,jx,y,jy,z)
     enddo
     z = r
     return
-end subroutine mydot32
+end subroutine mydotf32
 
-subroutine mydot64(n,x,jx,y,jy,z)
+subroutine mydotf64(n,x,jx,y,jy,z)
     use ISO_FORTRAN_ENV
     implicit none
     integer, intent(in) :: n,jx,jy
@@ -27,7 +27,7 @@ subroutine mydot64(n,x,jx,y,jy,z)
     real(kind=REAL64), intent(out) :: z
     real(kind=REAL64) :: r
     if ((jx.ne.1).or.(jy.ne.1)) then
-        print*,'mysdot64 supports stride 1 only'
+        print*,'mydotf64 supports stride 1 only'
         call abort
     endif
     r = 0.0
@@ -36,9 +36,9 @@ subroutine mydot64(n,x,jx,y,jy,z)
     enddo
     z = r
     return
-end subroutine mydot64
+end subroutine mydotf64
 
-subroutine mydot128(n,x,jx,y,jy,z)
+subroutine mydotf128(n,x,jx,y,jy,z)
     use ISO_FORTRAN_ENV
     implicit none
     integer, intent(in) :: n,jx,jy
@@ -47,7 +47,7 @@ subroutine mydot128(n,x,jx,y,jy,z)
     real(kind=REAL128), intent(out) :: z
     real(kind=REAL128) :: r
     if ((jx.ne.1).or.(jy.ne.1)) then
-        print*,'mysdot128 supports stride 1 only'
+        print*,'mydotf128 supports stride 1 only'
         call abort
     endif
     r = 0.0
@@ -56,4 +56,4 @@ subroutine mydot128(n,x,jx,y,jy,z)
     enddo
     z = r
     return
-end subroutine mydot128
+end subroutine mydotf128

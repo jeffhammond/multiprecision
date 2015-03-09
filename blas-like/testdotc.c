@@ -35,7 +35,7 @@ int main(int argc, char * argv[])
     dt64  = 0.0;
     dt32  = 0.0;
 
-    for (int j=0; j<20; j++) {
+    for (int j=0; j<100; j++) {
 
         t0 = omp_get_wtime();
         mydotc128(n, x128, 1, y128, 1, &z128);

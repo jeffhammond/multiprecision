@@ -32,17 +32,20 @@ program testdotf
     dt128 = 0.0d0
     dt64  = 0.0d0
     dt32  = 0.0d0
-    do j=1,20
+    do j=1,100
         t0 = omp_get_wtime()
-        call myqdot(n,x128,1,y128,1,z128)
+        !call myqdot(n,x128,1,y128,1,z128)
+        call mydotf128(n,x128,1,y128,1,z128)
         t1 = omp_get_wtime()
         dt128 = dt128 + t1 - t0
         t0 = omp_get_wtime()
-        call myddot(n,x64 ,1,y64 ,1,z64)
+        !call myddot(n,x64 ,1,y64 ,1,z64)
+        call mydotf64(n,x64 ,1,y64 ,1,z64)
         t1 = omp_get_wtime()
         dt64 = dt64 + t1 - t0
         t0 = omp_get_wtime()
-        call mysdot(n,x32 ,1,y32 ,1,z32)
+        !call mysdot(n,x32 ,1,y32 ,1,z32)
+        call mydotf32(n,x32 ,1,y32 ,1,z32)
         t1 = omp_get_wtime()
         dt32 = dt32 + t1 - t0
         if (j.eq.1) then
