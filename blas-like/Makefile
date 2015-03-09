@@ -23,10 +23,10 @@ CFLAGS = $(OFLAGS) -std=gnu99
 F90FLAGS = $(OFLAGS)
 F77FLAGS = $(OFLAGS)
 
-LIBS = -lquadmath
+LIBS = -lm -lquadmath
 endif
 
-TESTS = testquad.x testdotf.x
+TESTS = testquad.x testdotf.x testdotc.x
 IMPLS = dot.o dot77.o dotc.o
 
 all: $(TESTS)
@@ -40,7 +40,7 @@ all: $(TESTS)
 %.o: %.f
 	$(FC) $(F77FLAGS) -c $<
 
-%.o: %.c quad.h
+%.o: %.c quad.h dotc.h
 	$(CC) $(CFLAGS) -c $< 
 
 %.x: %.f90 libdot.a
