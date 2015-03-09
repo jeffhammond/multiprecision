@@ -56,8 +56,9 @@ program testdotf
             dt32  = 0.0d0
         endif
     enddo
-    write(6,*) dt32,dt64,dt128
+    write(6,1000) dt32,dt64,dt128
  132  format(' float32  ',i9,',',e14.7 ,',',e14.7)
  164  format(' float64  ',i9,',',e21.14,',',e21.14)
  1128 format(' float128 ',i9,',',e35.28,',',e35.28)
+ 1000 format('Timings ',f14.7,' (32b),',f14.7,' (64b),',f14.7,' (128b)')
 end program testdotf

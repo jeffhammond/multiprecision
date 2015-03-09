@@ -54,9 +54,9 @@ int main(int argc, char * argv[])
 
         if (j==0) {
             /* check accuracy visually on first iteration */
-            printf("%lf, %40.25lf\n", dt128, (double)z128);
-            printf("%lf, %40.25lf\n", dt64,  z64);
-            printf("%lf, %40.25f\n",  dt32,  z32);
+            printf("128 dt=%lf, z=%40.25lf\n", dt128, (double)z128); /* Intel does not support printf of quad... */
+            printf("64  dt=%lf, z=%40.25lf\n", dt64,  z64);
+            printf("32  dt=%lf, z=%40.25f\n",  dt32,  z32);
 
             /* ignore timing for first iteration */
             dt128 = 0.0;
@@ -64,7 +64,7 @@ int main(int argc, char * argv[])
             dt32  = 0.0;
         }
     }
-    printf("%lf, %lf, %lf\n", dt32, dt64, dt128);
+    printf("Timings %14.7lf (32b), %14.7lf (64b), %14.7lf (128b)\n", dt32, dt64, dt128);
 
     return 0;
 }
