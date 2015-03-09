@@ -2,7 +2,8 @@
 #define QUAD_H_DEFINED
 
 #if defined(__INTEL_COMPILER)
-/* This is no longer supported in version 15 it seems.
+/* This requires 
+ * CFLAGS+=-Qoption,cpp,--extended_float_type
 typedef _Quad quad; */
 typedef __float128 quad;
 #elif defined(__GNUC__)
