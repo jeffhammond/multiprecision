@@ -13,7 +13,7 @@ int main(int argc, char * argv[])
 {
     int n = (argc>1) ? atoi(argv[1]) : 100000;
 
-    quad   a128 = 37.0;
+    quad   a128 = (quad)37.0;
     double  a64 = (double)a128;
     float   a32 = (float)a128;
 #ifdef STACK_ALLOCATION
@@ -37,8 +37,8 @@ int main(int argc, char * argv[])
     }
 
     for (int i=1; i<n; i++) {
-        x64[i] = (double)x128[i];
-        x32[i] = (float)x128[i];
+        x64[i] = x128[i];
+        x32[i] = x128[i];
         y64[i] = 0.0;
         y32[i] = 0.0f;
     }
@@ -66,9 +66,9 @@ int main(int argc, char * argv[])
 
         if (j==0) {
             /* check accuracy visually on first iteration */
-            printf("128 dt=%lf, z=%40.25lf\n", dt128, (double)y128[0]); /* Intel does not support printf of quad... */
-            printf("64  dt=%lf, z=%40.25lf\n", dt64,  y64[0]);
-            printf("32  dt=%lf, z=%40.25f\n",  dt32,  y32[0]);
+            printf("128 dt=%lf, z=%40.25lf\n", dt128, (double)y128[1]); /* Intel does not support printf of quad... */
+            printf("64  dt=%lf, z=%40.25lf\n", dt64,  y64[1]);
+            printf("32  dt=%lf, z=%40.25f\n",  dt32,  y32[1]);
 
             /* ignore timing for first iteration */
             dt128 = 0.0;
