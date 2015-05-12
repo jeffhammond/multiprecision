@@ -98,21 +98,25 @@ void mypowc32(int n, int a, float x[n], int jx, float y[n], int jy)
             for (int i=0; i<n; i++) {
                 y[i] = x[i] * x[i] * x[i];
             }
+            break;
         case 4:
             for (int i=0; i<n; i++) {
                 float t = x[i] * x[i];
                 y[i] = t * t;
             }
+            break;
         case 5:
             for (int i=0; i<n; i++) {
                 float t = x[i] * x[i];
                 y[i] = t * t * x[i];
             }
+            break;
         case 6:
             for (int i=0; i<n; i++) {
                 float t = x[i] * x[i];
                 y[i] = t * t * t;
             }
+            break;
         default:
             printf("exponent of %d not supported\n", a);
             abort();
@@ -138,21 +142,25 @@ void mypowc64(int n, int a, double x[n], int jx, double y[n], int jy)
             for (int i=0; i<n; i++) {
                 y[i] = x[i] * x[i] * x[i];
             }
+            break;
         case 4:
             for (int i=0; i<n; i++) {
                 double t = x[i] * x[i];
                 y[i] = t * t;
             }
+            break;
         case 5:
             for (int i=0; i<n; i++) {
                 double t = x[i] * x[i];
                 y[i] = t * t * x[i];
             }
+            break;
         case 6:
             for (int i=0; i<n; i++) {
                 double t = x[i] * x[i];
                 y[i] = t * t * t;
             }
+            break;
         default:
             printf("exponent of %d not supported\n", a);
             abort();
