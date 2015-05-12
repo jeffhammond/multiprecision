@@ -1,7 +1,7 @@
 COMPILER := INTEL
 
 ifeq ($(COMPILER),INTEL)
-OFLAGS = -g -O3 -xHost -qopenmp
+OFLAGS = -g -O3 -xHost -mavx -qopenmp
 
 FC = ifort
 CC = icc
@@ -26,13 +26,22 @@ F77FLAGS = $(OFLAGS)
 LIBS = -lm -lquadmath
 endif
 
-TESTS = testquad.x testdotf.x testdotc.x
+TESTS = testquad.x testdotf.x testdotc.x testcopyc.x testscalc.x testpowc.x
 IMPLS = dot.o dot77.o dotc.o
 
 all: $(TESTS)
 
 %.a: $(IMPLS)
 	$(AR) -r $@ $(IMPLS)
+
+%.s: %.f90
+	$(FC) $(F90FLAGS) -S $<
+
+%.s: %.f
+	$(FC) $(F77FLAGS) -S $<
+
+%.s: %.c quad.h dotc.h
+	$(CC) $(CFLAGS) -S $< 
 
 %.o: %.f90
 	$(FC) $(F90FLAGS) -c $<
@@ -54,6 +63,7 @@ all: $(TESTS)
 
 clean:
 	-rm -f *.o
+	-rm -f *.s
 	-rm -f $(TESTS)
 	-rm -f *.dwarf
 	-rm -fr *.dSYM
