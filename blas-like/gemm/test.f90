@@ -5,15 +5,17 @@ program test
     integer :: err
     integer :: argnum, arglen
     character(len=32) :: argtmp
-    integer :: r, dims(3), m, n, k
+    integer :: r, dims(0:3), alg, m, n, k
     real(kind=REAL128), allocatable :: x128(:,:), y128(:,:), z128(:,:)
     double precision :: t0,t1,dt
-    dims(:) = 100
+    dims(0)   = 1
+    dims(1:3) = 100
     do argnum = 1, command_argument_count()
         call get_command_argument(argnum,argtmp,arglen,err)
         !print*,'get_command_argument: ',argnum,argtmp,arglen,err
-        if (err.eq.0) read(argtmp,'(i)') dims(argnum)
+        if (err.eq.0) read(argtmp,'(i)') dims(argnum-1)
     enddo
+    alg = dims(0)
     m = dims(1)
     n = dims(2)
     k = dims(3)
@@ -31,7 +33,7 @@ program test
     dt = 0.0d0
     do r=1,10
         t0 = omp_get_wtime()
-        call matmulf128(m,n,k,x128,y128,z128)
+        call matmulf128(m,n,k,x128,y128,z128,alg)
         t1 = omp_get_wtime()
         dt = dt + t1 - t0
     enddo
