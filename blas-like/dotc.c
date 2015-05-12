@@ -101,20 +101,42 @@ void mypowc32(int n, int a, float x[n], int jx, float y[n], int jy)
             break;
         case 4:
             for (int i=0; i<n; i++) {
-                float t = x[i] * x[i];
-                y[i] = t * t;
+                y[i] = x[i] * x[i] * x[i] * x[i];
             }
             break;
         case 5:
             for (int i=0; i<n; i++) {
-                float t = x[i] * x[i];
-                y[i] = t * t * x[i];
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i];
             }
             break;
         case 6:
             for (int i=0; i<n; i++) {
-                float t = x[i] * x[i];
-                y[i] = t * t * t;
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 7:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 8:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 9:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 10:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 11:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
             }
             break;
         default:
@@ -145,20 +167,42 @@ void mypowc64(int n, int a, double x[n], int jx, double y[n], int jy)
             break;
         case 4:
             for (int i=0; i<n; i++) {
-                double t = x[i] * x[i];
-                y[i] = t * t;
+                y[i] = x[i] * x[i] * x[i] * x[i];
             }
             break;
         case 5:
             for (int i=0; i<n; i++) {
-                double t = x[i] * x[i];
-                y[i] = t * t * x[i];
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i];
             }
             break;
         case 6:
             for (int i=0; i<n; i++) {
-                double t = x[i] * x[i];
-                y[i] = t * t * t;
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 7:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 8:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 9:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 10:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 11:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
             }
             break;
         default:
@@ -188,20 +232,42 @@ void mypowc128(int n, int a, quad x[n], int jx, quad y[n], int jy)
             break;
         case 4:
             for (int i=0; i<n; i++) {
-                quad t = x[i] * x[i];
-                y[i] = t * t;
+                y[i] = x[i] * x[i] * x[i] * x[i];
             }
             break;
         case 5:
             for (int i=0; i<n; i++) {
-                quad t = x[i] * x[i];
-                y[i] = t * t * x[i];
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i];
             }
             break;
         case 6:
             for (int i=0; i<n; i++) {
-                quad t = x[i] * x[i];
-                y[i] = t * t * t;
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 7:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 8:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 9:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 10:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
+            }
+            break;
+        case 11:
+            for (int i=0; i<n; i++) {
+                y[i] = x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i] * x[i];
             }
             break;
         default:
