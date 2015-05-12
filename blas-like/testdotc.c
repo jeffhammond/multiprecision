@@ -13,14 +13,14 @@ int main(int argc, char * argv[])
 {
     int n = (argc>1) ? atoi(argv[1]) : 100000;
 
-#ifdef STACK_ALLOCATION
-    quad   x128[n], y128[n], z128;
-    double  x64[n],  y64[n],  z64;
-    float   x32[n],  y32[n],  z32;
-#else
     quad   z128;
     double  z64;
     float   z32;
+#ifdef STACK_ALLOCATION
+    quad   x128[n], y128[n];
+    double  x64[n],  y64[n];
+    float   x32[n],  y32[n];
+#else
     quad   * x128 = malloc(n*sizeof(quad));
     double *  x64 = malloc(n*sizeof(double));
     float  *  x32 = malloc(n*sizeof(float));
