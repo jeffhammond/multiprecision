@@ -7,7 +7,6 @@ program test
     character(len=32) :: argtmp
     integer :: r, dims(3), m, n, k
     real(kind=REAL128), allocatable :: x128(:,:), y128(:,:), z128(:,:)
-    double precision :: alpha, beta
     double precision :: t0,t1,dt
     dims(:) = 100
     do argnum = 1, command_argument_count()
@@ -32,11 +31,11 @@ program test
     dt = 0.0d0
     do r=1,10
         t0 = omp_get_wtime()
-        call matmulf128(m,n,k,alpha,x128,y128,beta,z128)
+        call matmulf128(m,n,k,x128,y128,z128)
         t1 = omp_get_wtime()
         dt = dt + t1 - t0
     enddo
-    write(6,1000) dt
+    write(6,1000) dt/r
     deallocate( x128 )
     deallocate( y128 )
     deallocate( z128 )

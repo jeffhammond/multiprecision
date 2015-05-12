@@ -1,7 +1,10 @@
 COMPILER := INTEL
 
 ifeq ($(COMPILER),INTEL)
-OFLAGS = -g -O3 -xHost -mavx -qopenmp
+OFLAGS  = -g -O3
+#OFLAGS += -qopenmp
+#OFLAGS += -xHost -mavx
+OFLAGS +=  -Wl,-no_pie
 
 FC = ifort
 CC = icc
@@ -10,11 +13,12 @@ CFLAGS = $(OFLAGS) -std=gnu99
 F90FLAGS = $(OFLAGS) -heap-arrays
 F77FLAGS = $(OFLAGS) -heap-arrays
 
-LIBS =
+LIBS = -qopenmp
 endif
 
 ifeq ($(COMPILER),GCC)
-OFLAGS = -g -O3 -fopenmp
+OFLAGS  = -g -O3 -fopenmp
+OFLAGS +=  -Wl,-no_pie
 
 FC = gfortran-4.9
 CC = gcc-4.9
