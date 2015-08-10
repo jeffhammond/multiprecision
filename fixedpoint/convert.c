@@ -8,7 +8,7 @@
 int main(int argc, char* argv[])
 {
     float f32a = 10000.0, f32b = 0.00001;
-    printf("pi = %f e = %f\n", f32a, f32b);
+    printf("a = %f b = %f\n", f32a, f32b);
 
     int64_t i64a = (double)f32a / (double)FLT_EPSILON;
     int64_t i64b = (double)f32b / (double)FLT_EPSILON;
