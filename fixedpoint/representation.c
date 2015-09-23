@@ -1,28 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 #include <limits.h>
 #include <float.h>
 #include <math.h>
 
-struct {
-    unsigned char    sign : 1;
-    unsigned int     exponent : 8;
+typedef union {
+  struct {
     unsigned int     mantissa : 23;
-} sp_guts_t;
+    unsigned int     exponent : 8;
+    unsigned char    sign : 1;
+  } internal;
+  float number;
+} sp_t;
 
 int main(int argc, char* argv[])
 {
-    float f32a = 10000.0, f32b = 0.00001;
-    printf("pi = %f e = %f\n", f32a, f32b);
+    int32_t i1 = -4194303;
+    int32_t i2 = -8388607;
+    int32_t i3 = -4194302;
+    int32_t i4 = -8388606;
 
-    int64_t i64a = (double)f32a / (double)FLT_EPSILON;
-    int64_t i64b = (double)f32b / (double)FLT_EPSILON;
+    sp_t x,y;
 
-    int64_t i64c = i64a + i64b;
-
-    float f32c = i64c * FLT_EPSILON;
-    printf("sum = %f (should be %f)\n", f32c, f32a+f32b);
+    memcpy(&x,&i2,4);
+    y.number = x.number+0.0f;
+    printf("x.number=%f\n", x.number);
+    printf("y.number=%f\n", y.number);
+    printf("x.internal=%d,%d,%c\n", x.internal.mantissa, x.internal.exponent, x.internal.sign);
+    printf("y.internal=%d,%d,%c\n", y.internal.mantissa, y.internal.exponent, y.internal.sign);
 
     return 0;
 }

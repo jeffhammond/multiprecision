@@ -14,6 +14,14 @@ subroutine matmulf128(row,col,inn,x,y,z,alg)
                 enddo
               enddo
             enddo
+        case(2)
+            do j=1, col
+              do k=1, inn
+                do i=1, row
+                  z(i,j) = z(i,j) + x(i,k) * y(k,j)
+                enddo
+              enddo
+            enddo
         case default
             print*,'invalid algorithm: ',alg
     end select

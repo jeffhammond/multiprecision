@@ -8,11 +8,11 @@ program test
     integer :: r, dims(0:3), alg, m, n, k
     real(kind=REAL128), allocatable :: x128(:,:), y128(:,:), z128(:,:)
     double precision :: t0,t1,dt
+    print*,'./test.x <algorithm> <m> <n> <k>'
     dims(0)   = 1
     dims(1:3) = 100
     do argnum = 1, command_argument_count()
         call get_command_argument(argnum,argtmp,arglen,err)
-        !print*,'get_command_argument: ',argnum,argtmp,arglen,err
         if (err.eq.0) read(argtmp,'(i)') dims(argnum-1)
     enddo
     alg = dims(0)

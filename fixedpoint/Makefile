@@ -1,8 +1,8 @@
-CC 	   = clang
+CC     = clang
 CFLAGS = -g -Wall -std=c99
-LIBS= -lm
+LIBS   = -lm
 
-TESTS = convert representation rep_union
+TESTS = convert representation union
 
 all:  $(TESTS)
 
