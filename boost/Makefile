@@ -1,12 +1,12 @@
-CXX 	 = clang++
-CXXFLAGS = -g -Wall -std=c++11 -stdlib=libc++
+CXX 	 = g++-5
+CXXFLAGS = -g -Wall -std=gnu++11 #-stdlib=libc++
 
 LD	 = $(CXX)
 LDFLAGS  = $(CXXFLAGS)
 
 LIBS	 = -lmpfr -lgmp
 
-all: horner-sine.x tgamma.x basic.x bug.x
+all: horner-sine.x tgamma.x basic.x bug.x theveny.x
 
 %.x: %.o
 	$(LD) $(LDFLAGS) $< $(LIBS) -o $@
