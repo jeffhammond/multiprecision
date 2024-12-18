@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
     SuperFloat::Number a(1.0);
-    SuperFloat::Number b(7L);
+    SuperFloat::Number b(7);
     SuperFloat::Number c;
 
     std::cout << a << std::endl;
