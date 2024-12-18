@@ -10,6 +10,7 @@
 #include <boost/math/special_functions/gamma.hpp>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/cpp_bin_float.hpp>
+#include <boost/multiprecision/float128.hpp>
 
 typedef boost::multiprecision::number<
             boost::multiprecision::backends::cpp_bin_float<
@@ -25,6 +26,7 @@ using boost::multiprecision::cpp_bin_float_single;
 using boost::multiprecision::cpp_bin_float_double;
 using boost::multiprecision::cpp_bin_float_double_extended;
 using boost::multiprecision::cpp_bin_float_quad;
+using boost::multiprecision::float128;
 
 
 template <typename T>
@@ -40,7 +42,7 @@ void foo(void)
     T b = boost::math::constants::pi<T>();
     T c = exp(a);
     T d = pow(c,c);
-    T e = 1./c;
+    T e = a/c;
 
     std::cout << std::setprecision(std::numeric_limits<T>::max_digits10) << a << std::endl;
     std::cout << std::setprecision(std::numeric_limits<T>::max_digits10) << b << std::endl;
@@ -56,6 +58,7 @@ int main(void)
     foo<boost::multiprecision::cpp_bin_float_double_extended >();
     foo<cpp_bin_float_double_double >();
     foo<boost::multiprecision::cpp_bin_float_quad >();
+    foo<boost::multiprecision::float128 >();
     foo<boost::multiprecision::number<cpp_dec_float<64> > >();
 
     return 0;

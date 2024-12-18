@@ -4,7 +4,7 @@
 #include <utility>
 #include <cmath> // _Decimal64?
 
-#include <boost/tr1/cmath.hpp>
+//#include <boost/tr1/cmath.hpp>
 #include <boost/math/special_functions.hpp>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/cpp_bin_float.hpp>

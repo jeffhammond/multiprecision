@@ -1,10 +1,10 @@
-CXX 	 = g++-6
-CXXFLAGS = -g -Wall -std=gnu++11 #-stdlib=libc++
+CXX 	 = g++
+CXXFLAGS = -g -Wall
 
 LD	 = $(CXX)
 LDFLAGS  = $(CXXFLAGS)
 
-LIBS	 = -lmpfr -lgmp
+LIBS	 = -lmpfr -lgmp -lquadmath -lm
 
 all: horner-sine.x tgamma.x basic.x theveny.x # bug.x
 
